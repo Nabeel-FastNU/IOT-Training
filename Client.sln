@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1169
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Client", "Client\Client.csproj", "{5BA16990-6C29-4D49-8141-4DD649D9730B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReceiveC2d", "ReceiveC2d\ReceiveC2d.csproj", "{F6BAC17B-A85C-4991-BB20-2713E7B032AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRChart", "SignalRChart\SignalRChart.csproj", "{D339CD24-81C9-47A7-904C-2F679645CDF6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5BA16990-6C29-4D49-8141-4DD649D9730B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BA16990-6C29-4D49-8141-4DD649D9730B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BA16990-6C29-4D49-8141-4DD649D9730B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BA16990-6C29-4D49-8141-4DD649D9730B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6BAC17B-A85C-4991-BB20-2713E7B032AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6BAC17B-A85C-4991-BB20-2713E7B032AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6BAC17B-A85C-4991-BB20-2713E7B032AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6BAC17B-A85C-4991-BB20-2713E7B032AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D339CD24-81C9-47A7-904C-2F679645CDF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D339CD24-81C9-47A7-904C-2F679645CDF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D339CD24-81C9-47A7-904C-2F679645CDF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D339CD24-81C9-47A7-904C-2F679645CDF6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {85243B72-8C34-4CB3-9454-8121989ACEC5}
+	EndGlobalSection
+EndGlobal
