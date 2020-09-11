@@ -22,7 +22,6 @@ namespace Client
         public static void StartClient()
         {
             byte[] bytes = new byte[1024];
-            //string HOST = "raspberry";
             string IP = "192.168.8.101";
             int PORT = 17880;
             string message;
@@ -32,7 +31,6 @@ namespace Client
 
             try
             {
-                //IPHostEntry host = Dns.GetHostEntry(HOST);
                 IPAddress ipAddress = IPAddress.Parse(IP);
                 IPEndPoint remoteEP = new IPEndPoint(ipAddress, PORT);
                 Socket sender = new Socket(ipAddress.AddressFamily,
