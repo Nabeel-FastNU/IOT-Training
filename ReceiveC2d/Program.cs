@@ -26,8 +26,9 @@ namespace ReceiveC2d
                 var intArray = Array.ConvertAll(messageArray, int.Parse);
                 for (int i=0; i < intArray.Length; i++)
                 {
-                    Console.WriteLine(intArray[i]);
+                    Console.Write(intArray[i] + " ");
                 }
+                Console.WriteLine();
                 Console.ResetColor();
 
                 await s_deviceClient.CompleteAsync(receivedMessage);

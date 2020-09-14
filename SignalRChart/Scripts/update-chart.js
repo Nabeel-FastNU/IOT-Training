@@ -1,6 +1,6 @@
 ﻿$(function () {
 
-    dataPoints = [];
+    dps = [];
     var chart = new CanvasJS.Chart("chartContainer", {
         theme: "light2",
         title: {
@@ -8,16 +8,18 @@
         },
         data: [{
             type: "spline",
-            dataPoints: dataPoints
+            dataPoints: dps
         }]
     });
     chart.render();
-
     function update(data) {
 
         for (var i = 0; i < data.length; ++i) {
-            dataPoints.push({ y: data[i] });
+            dps = []
+            dps.push({ y: data[i] });
+            break;
         }
+        dps.shift();
         chart.render();
         //chart = null;
     }

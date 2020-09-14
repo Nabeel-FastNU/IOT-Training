@@ -6,6 +6,7 @@ using Newtonsoft.Json;
 using Microsoft.Azure.Devices;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using System.Collections.Concurrent;
 using System.Threading;
 
 namespace Client
@@ -17,7 +18,7 @@ namespace Client
         private readonly static string s_connectionString01 = "HostName=TestApp.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey=GxHOnQobv+UEYL+l44JWcAuq6QtFUxdocB6qIpVPX60=";
         private readonly static int _updateInterval = 5000; //ms        
         private static Timer _timer;
-        static List<string> data = new List<string>();
+        static ConcurrentQueue<string> data = new ConcurrentQueue<string>();
 
         public static void StartClient()
         {
@@ -51,7 +52,7 @@ namespace Client
 
                         int bytesRead = sender.Receive(bytes);
                         returndata = Encoding.ASCII.GetString(bytes, 0, bytesRead);
-                        data.Add(returndata);
+                        data.Enqueue(returndata);
                         Console.WriteLine("Server message: " + returndata);
 
                         Thread.Sleep(500);
@@ -71,19 +72,21 @@ namespace Client
             }
         }
 
-        private static void TimerCallBack(object state)
-        {
-            SendCloudToDeviceMessageAsync(data).Wait();
-            data = new List<string>();
+        private static async void TimerCallBack(object state)
+        {   
+            if(!data.IsEmpty)
+                await SendDeviceToCloudMessageAsync();
         }
 
-        private static async Task SendCloudToDeviceMessageAsync(List<string> data)
+        private static async Task SendDeviceToCloudMessageAsync()
         {
             try
             {
                 string messageString = "";
 
                 messageString = JsonConvert.SerializeObject(data);
+
+                data.Clear();
 
                 var message = new Message(Encoding.ASCII.GetBytes(messageString));
 
