@@ -23,7 +23,7 @@ namespace Client
         public static void StartClient()
         {
             byte[] bytes = new byte[1024];
-            string IP = "192.168.8.101";
+            string IP = "192.168.8.103";
             int PORT = 17880;
             string message;
             string returndata = "temp";

@@ -6,23 +6,32 @@
         title: {
             text: "Live Update"
         },
+        axisX: {
+            title: "60 seconds",
+            valueFormatString: " "
+        },
         data: [{
-            type: "spline",
+            type: "line",
             dataPoints: dps
         }]
     });
     chart.render();
+    var xAxis = 0; 
     function update(data) {
-
         for (var i = 0; i < data.length; ++i) {
-            dps = []
-            dps.push({ y: data[i] });
-            break;
+            dps.push({ x: xAxis, y: data[i] });
+            xAxis++;
         }
-        dps.shift();
+        if (isTimeOut) {
+            for (var j = 0; j < data.length; j++) {
+                dps.shift();
+            }
+        }
         chart.render();
-        //chart = null;
     }
+
+    var isTimeOut = false;
+    setTimeout(function () { isTimeOut = true }, 60000);
 
     //Create the proxy
     var chartData = $.connection.chartHub;
